@@ -21,7 +21,8 @@ app.group('/api/v1', (router) => {
 
     //Categories API
     router.get('/categories', categoryController.list)
-    router.get('/categories/detail', categoryController.show)
+    router.get('/categories/detail', categoryController.categoryMenu)
+    router.get('/category/:id', categoryController.getById)
 
     //Menus API
     router.get('/menus', menuController.list)
