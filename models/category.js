@@ -4,8 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING
   }, {});
   category.associate = function(models) {
-    category.belongsToMany(models.menu, {
-      through: 'categoryMenu',
+    category.hasMany(models.menu, {
       foreignKey: 'categoryId'
     })
   };

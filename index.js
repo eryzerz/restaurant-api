@@ -21,17 +21,23 @@ app.group('/api/v1', (router) => {
 
     //Categories API
     router.get('/categories', categoryController.list)
-    router.get('/categories/detail', categoryController.categoryMenu)
     router.get('/category/:id', categoryController.getById)
 
     //Menus API
     router.get('/menus', menuController.list)
+    router.get('/menu/:id', menuController.getById)
+    router.get('/menus/:id', menuController.getMenuByCategory)
 
     //Orders API
-
+    router.get('/orders', orderController.list)
+    router.get('/order/:id', orderController.getById)
+    router.post('/orders', orderController.store)
+    router.patch('/order/:id', orderController.update)
 
     //Transactions API
-
+    router.post('/transactions', transactionController.store)
+    router.patch('/transaction/:id', transactionController.update)
+    router.get('/transactions', transactionController.list)
 
 })
 
