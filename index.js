@@ -9,6 +9,8 @@ const transactionController = require('./controllers/transactions')
 
 const app = express()
 
+const PORT = 3000
+
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
@@ -18,10 +20,11 @@ app.get('/', (req, res) => {
 app.group('/api/v1', (router) => {
 
     //Categories API
-    
+    router.get('/categories', categoryController.list)
+    router.get('/categories/detail', categoryController.show)
 
     //Menus API
-
+    router.get('/menus', menuController.list)
 
     //Orders API
 
@@ -29,4 +32,8 @@ app.group('/api/v1', (router) => {
     //Transactions API
 
 
+})
+
+app.listen(PORT, () => {
+    console.log(`Listening to port ${PORT}`)
 })

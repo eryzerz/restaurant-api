@@ -5,6 +5,9 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.DOUBLE
   }, {});
   menu.associate = function(models) {
+    menu.hasMany(models.order, {
+      foreignKey: 'menuId'
+    }),
     menu.belongsToMany(models.category, {
       through: 'categoryMenu',
       foreignKey: 'menuId'

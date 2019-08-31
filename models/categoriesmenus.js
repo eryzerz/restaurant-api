@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const categoryMenu = sequelize.define('categoryMenu', {
+  const categoriesmenus = sequelize.define('categoriesmenus', {
     categoryId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -18,8 +18,8 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   }, {});
-  categoryMenu.associate = function(models) {
-    
+  categoriesmenus.associate = function(models) {
+    // associations can be defined here
   };
-  return categoryMenu;
+  return categoriesmenus;
 };

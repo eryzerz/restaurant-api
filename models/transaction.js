@@ -11,7 +11,9 @@ module.exports = (sequelize, DataTypes) => {
     isPaid: DataTypes.INTEGER
   }, {});
   transaction.associate = function(models) {
-    // associations can be defined here
+    transaction.hasMany(models.order, {
+      foreignKey: 'transactionId'
+    })
   };
   return transaction;
 };
