@@ -3,6 +3,7 @@ const Sequelize = require('sequelize')
 const Menu= require('../models').menu
 
 
+
 exports.list = (req, res) => {
     Menu.findAll({})
         .then(menu => res.status(200).send(menu))
@@ -22,3 +23,10 @@ exports.getMenuByCategory = (req, res) => {
         .then(menu => res.status(200).send(menu))
         .catch(err => res.status(400).send(err))
 }
+
+exports.create = (req, res) => {
+    Menu.create(req.body)
+        .then(menu => res.status(200).send(menu))
+        .catch(err => res.status(400).send(err))
+}
+

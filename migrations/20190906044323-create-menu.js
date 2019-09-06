@@ -14,13 +14,18 @@ module.exports = {
       price: {
         type: Sequelize.DOUBLE
       },
+      imageURL: {
+        type: Sequelize.STRING
+      },
       categoryId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'category',
+          model: 'categories',
           key: 'id'
         },
+        onUpdate: 'cascade',
+        onDelete: 'cascade'
       },
       createdAt: {
         allowNull: false,

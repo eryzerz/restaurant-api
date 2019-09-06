@@ -27,6 +27,7 @@ app.group('/api/v1', (router) => {
     router.get('/menus', menuController.list)
     router.get('/menu/:id', menuController.getById)
     router.get('/menus/:id', menuController.getMenuByCategory)
+    router.post('/menus', menuController.create)
 
     //Orders API
     router.get('/orders', orderController.list)
@@ -38,6 +39,7 @@ app.group('/api/v1', (router) => {
     router.post('/transactions', transactionController.store)
     router.patch('/transaction/:id', transactionController.update)
     router.get('/transactions', transactionController.list)
+    router.get('/transaction/order/:id', transactionController.show)
 
 })
 
