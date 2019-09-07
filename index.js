@@ -32,6 +32,7 @@ app.group('/api/v1', (router) => {
     //Orders API
     router.get('/orders', orderController.list)
     router.get('/order/:id', orderController.getById)
+    router.get('/order/transaction/:id', orderController.getByTransId)
     router.post('/orders', orderController.store)
     router.patch('/order/:id', orderController.update)
 
